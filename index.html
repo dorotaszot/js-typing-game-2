@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Typing Game 2 - On My Own</title>
+</head>
+
+<body>
+  <form id="difficulty-form">
+    <label for="difficulty">Difficulty</label>
+    <select id="difficulty-select">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </form>
+  <div class="game-container">
+    <h1 class="title">Speed Typer</h1>
+    <div class="time-score-container">
+      <p class="time-line">Time left: <span id="time">10s</span></p>
+      <p class="score-line">Your score: <span id="score">0</span></p>
+    </div>
+    <p class="instruction">Type the following:</p>
+    <h1 id="random-word">random</h1>
+    <input type="text" autocomplete="off" placeholder="Type here...">
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
