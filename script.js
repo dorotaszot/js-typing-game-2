@@ -12,7 +12,7 @@ text.focus();
 let time = 10;
 let score = 0;
 let randomWord;
-
+let difficulty;
 
 // Don't know for now
 // function getWord() {
@@ -44,22 +44,6 @@ function updateScore() {
 }
 
 function updateTime() {
-  time += 3;
-  timeEl.innerText = time + 's';
-}
-
-function checkWord(e) {
-  if (e.target.value === randomWord) {
-    getRandomWord();
-    updateScore();
-    updateTime();
-    text.value = '';
-  }
-}
-
-const timeInterval = setInterval(setTime, 1000);
-
-function setTime() {
   time--;
   timeEl.innerText = time + 's';
 
@@ -69,7 +53,33 @@ function setTime() {
   }
 }
 
-setTime();
+function checkWord(e) {
+  if (e.target.value === randomWord) {
+    getRandomWord();
+    updateScore();
+    // changeTime();
+    // updateTime();
+
+    text.value = '';
+    if (difficulty === 'easy') {
+      time += 10;
+    }
+    updateTime();
+  }
+}
+
+// function changeTime(e) {
+//   difficulty = e.target.value;
+//   // console.log(difficulty);
+//   if (difficulty === 'easy') {
+//     time += 10;
+
+//   }
+//   // updateTime()
+// }
+
+const timeInterval = setInterval(updateTime, 1000);
+
 
 function gameOver() {
   gameOverOverlay.style.display = 'flex';
@@ -84,6 +94,11 @@ function reloadGame() {
   location.reload();
 }
 
+
 // Event Listeners
 text.addEventListener('input', checkWord);
+difficultySelect.addEventListener('change', e => {
+  difficulty = e.target.value;
+  console.log(difficulty);
+});
 
