@@ -107,3 +107,20 @@ input:focus {
 #game-over-overlay h1 {
   margin-bottom: 20px;
 }
+
+#reload-btn {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+}
+
+#reload-btn:hover {
+  background-color: rgb(120, 120, 167);
+  transition: .2s ease-in-out;
+  outline: none;
+ 
+}
+
