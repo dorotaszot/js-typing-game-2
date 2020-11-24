@@ -17,6 +17,11 @@ let difficulty =
     ? localStorage.getItem('difficulty')
     : 'easy';
 
+difficultySelect.value =
+  localStorage.getItem('difficulty') !== null
+    ? localStorage.getItem('difficulty')
+    : 'easy';
+
 // Don't know for now
 // function getWord() {
 //   fetch('https://github.com/dariusk/corpora/blob/master/data/words/common.json')
@@ -65,11 +70,11 @@ function checkWord(e) {
 
     text.value = '';
     if (difficulty === 'easy') {
-      time += 10;
+      time += 6;
     } else if (difficulty === 'medium') {
-      time += 5;
+      time += 4;
     } else if (difficulty === 'hard') {
-      time += 3;
+      time += 2;
     }
     updateTime();
   }
@@ -107,7 +112,6 @@ text.addEventListener('input', checkWord);
 difficultySelect.addEventListener('change', e => {
   difficulty = e.target.value;
   localStorage.setItem('difficulty', difficulty);
-  console.log(difficulty);
 });
 
 // Add LS
