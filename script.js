@@ -12,7 +12,10 @@ text.focus();
 let time = 10;
 let score = 0;
 let randomWord;
-let difficulty;
+let difficulty =
+  localStorage.getItem('difficulty') !== null
+    ? localStorage.getItem('difficulty')
+    : 'easy';
 
 // Don't know for now
 // function getWord() {
@@ -63,6 +66,10 @@ function checkWord(e) {
     text.value = '';
     if (difficulty === 'easy') {
       time += 10;
+    } else if (difficulty === 'medium') {
+      time += 5;
+    } else if (difficulty === 'hard') {
+      time += 3;
     }
     updateTime();
   }
@@ -99,6 +106,8 @@ function reloadGame() {
 text.addEventListener('input', checkWord);
 difficultySelect.addEventListener('change', e => {
   difficulty = e.target.value;
+  localStorage.setItem('difficulty', difficulty);
   console.log(difficulty);
 });
 
+// Add LS
