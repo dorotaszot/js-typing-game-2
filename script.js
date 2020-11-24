@@ -17,25 +17,27 @@ let difficulty =
     ? localStorage.getItem('difficulty')
     : 'easy';
 
+let wordsArr = [];
+
 difficultySelect.value =
   localStorage.getItem('difficulty') !== null
     ? localStorage.getItem('difficulty')
     : 'easy';
 
 // Don't know for now
-// function getWord() {
-//   fetch('https://github.com/dariusk/corpora/blob/master/data/words/common.json')
+function getWord() {
+  fetch('wordList.txt')
+    .then(data => data.text())
+    .then(res => {
+      wordsArr = res;
+      console.log(res);
+      return wordsArr;
+    })
+}
 
-//     .then(data => {
+getWord();
 
-//       console.log(data);
-//     });
-//   ;
-// }
-
-// getWord();
-
-let wordsArr = ['words', 'simple', 'selection', 'whereas', 'sometimes', 'pictures', 'milestone', 'bootle', 'notebook', 'drawer'];
+// let wordsArr = ['apple', 'pear', 'banana']
 
 function getRandomWord() {
   randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
