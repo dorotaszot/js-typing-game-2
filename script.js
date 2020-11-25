@@ -17,7 +17,7 @@ let difficulty =
     ? localStorage.getItem('difficulty')
     : 'easy';
 
-let wordsArr = [];
+// let wordsArr = [];
 
 difficultySelect.value =
   localStorage.getItem('difficulty') !== null
@@ -25,19 +25,21 @@ difficultySelect.value =
     : 'easy';
 
 // Don't know for now
-function getWord() {
-  fetch('wordList.txt')
-    .then(data => data.text())
-    .then(res => {
-      wordsArr = res;
-      console.log(res);
-      return wordsArr;
-    })
-}
+// function getWord() {
+//   fetch('wordList.txt')
+//     .then(data => data.json())
+//     .then(res => {
+//       wordsArr = res;
+//       console.log(wordsArr);
+//       return wordsArr;
+//     })
+// }
 
-getWord();
+// getWord();
+// console.log(wordsArr);
 
-// let wordsArr = ['apple', 'pear', 'banana']
+
+let wordsArr = ['apple', 'pear', 'banana', 'whereas', 'difficult', 'screen', 'almost', 'paintings']
 
 function getRandomWord() {
   randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
